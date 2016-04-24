@@ -1,0 +1,427 @@
+\documentclass[letterpaper]{article} % Use US Letter paper, change to a4paper for A4 
+
+\usepackage[hmargin=1.25cm, vmargin=0.75cm]{geometry} % Specifies horizontal and vertical page margins
+\usepackage{hyperref} % Required for links
+
+
+%----------------------------------------------------------------------------------------
+%	COLORS
+%----------------------------------------------------------------------------------------
+
+\usepackage[usenames,dvipsnames]{xcolor} % Required for custom colors
+
+\definecolor{primary}{HTML}{2b2b2b} % The primary document color for content text
+\definecolor{headings}{HTML}{6A6A6A} % The color of the large sections
+\definecolor{subheadings}{HTML}{333333} % The color of subsections and places worked/studied
+\definecolor{date}{HTML}{666666} % The color used for the Last Updated text at the top right
+
+\hypersetup{
+	pdftitle={Sean Madden Resume},
+	pdfauthor={Sean Madden},
+	pdfsubject={Resume},
+	pdfcreator={Sean Madden},
+	pdfnewwindow=true,
+	colorlinks=true,
+	urlcolor=blue,
+	linkcolor=blue
+}
+
+
+%----------------------------------------------------------------------------------------
+%	FONTS
+%----------------------------------------------------------------------------------------
+
+\usepackage{fontspec} % Required for specifying custom fonts in XeLaTeX
+
+\setmainfont[Color=primary, Path = fonts/lato/,BoldItalicFont=Lato-RegIta,BoldFont=Lato-Reg,ItalicFont=Lato-LigIta]{Lato-Lig} % The primary font for content text; defines bold, italic and bold-italic as well
+
+\setsansfont[Scale=MatchLowercase,Mapping=tex-text, Path = fonts/raleway/]{Raleway-ExtraLight} % The font used where \sfffamily is called
+
+%----------------------------------------------------------------------------------------
+%	LAST UPDATED COMMAND
+%----------------------------------------------------------------------------------------
+
+\usepackage[absolute]{textpos} % Required for positioning the Last Updated text at the top right of the page
+\usepackage[UKenglish]{isodate} % Prints the Last Updated date in UK English format
+
+\setlength{\TPHorizModule}{0.01\paperwidth} % Sets the units for the horizontal position used in the \begin{textblock} argument
+\setlength{\TPVertModule}{0.01\paperwidth} % Sets the units for the vertical position used in the \begin{textblock} argument
+\newcommand{\lastupdated}{ % Create a new command for printing the Last Updated text
+\begin{textblock}{25}(75,2) % The position of the Last Updated text on the page (75% of the page across, 2% down)
+\color{date}\fontspec[Path = fonts/raleway/]{Raleway-ExtraLight}\fontsize{8pt}{10pt}\selectfont % Text styling of the text
+Last Updated on \today % Last Updated text
+\end{textblock}}
+
+%----------------------------------------------------------------------------------------
+%	MAIN HEADING COMMAND
+%----------------------------------------------------------------------------------------
+
+\newcommand{\namesection}[3]{ % Defines the command for the main heading
+\centering{ % Center the name
+\fontsize{40pt}{60pt} % Font size
+\fontspec[Path = fonts/lato/]{Lato-Hai}\selectfont #1 % First name font
+\fontspec[Path = fonts/lato/]{Lato-Lig}\selectfont #2 % Last name font
+} \\[5pt] % Whitespace between the name and contact information
+\centering{ % Center the contact information
+\color{headings} % Use the headings color
+\fontspec[Path = fonts/raleway/]{Raleway-Medium}\fontsize{11pt}{14pt}\selectfont #3} % Contact information font
+\noindent\makebox[\linewidth]{\color{headings}\rule{\paperwidth}{0.4pt}} % Horizontal rule
+\vspace{-5pt} % Reduce whitespace after the rule slightly
+}
+
+%----------------------------------------------------------------------------------------
+%	SECTION TITLE STYLING AND SPACING
+%----------------------------------------------------------------------------------------
+
+\usepackage{titlesec} % Required for customizing section/subsection/etc titles
+
+\titlespacing{\section}{0pt}{0pt}{0pt} % Removes the spacing around the main section titles
+\titlespacing{\subsection}{0pt}{0pt}{0pt} % Removes the spacing around the subsections
+\newcommand{\sectionspace}{\vspace{8pt}} % Defines a command to add a set amount of space after sections and subsections
+
+\titleformat{\section}{ % Customize the large section titles
+\color{headings}\scshape\fontspec[Path = fonts/lato/]{Lato-Lig}\fontsize{16pt}{24pt}\selectfont \raggedright\uppercase}{}{0em}{}
+
+\titleformat{\subsection}{ % Customize the subsections and places worked/studied titles
+\color{subheadings}\fontspec[Path = fonts/lato/]{Lato-Bol}\fontsize{12pt}{12pt}\selectfont\bfseries\uppercase}{}{0em}{}
+
+\newcommand{\runsubsection}[1]{ % Used for creating subsections where a description is required on the same line
+\color{subheadings}\fontspec[Path = fonts/lato/]{Lato-Bol}\fontsize{12pt}{12pt}\selectfont\bfseries\uppercase {#1} \normalfont}
+
+\newcommand{\descript}[1]{ % Used for describing the subsection either on the same line or underneath
+\color{subheadings}\raggedright\scshape\fontspec[Path = fonts/raleway/]{Raleway-Medium}\fontsize{11pt}{13pt}\selectfont {#1 \\} \normalfont}
+
+\newcommand{\location}[1]{ % Used for specifying a duration and/or location under a subsection
+\color{headings}\raggedright\fontspec[Path = fonts/raleway/]{Raleway-Medium}\fontsize{10pt}{12pt}\selectfont {#1\\} \normalfont}
+\newcommand{\hrefloc}[2]{ % Used for a location URL under a subsection
+\color{headings}\raggedright\fontspec[Path = fonts/raleway/]{Raleway-Medium}\fontsize{10pt}{12pt}\selectfont{ \href{#1}{#2}\\} \normalfont}
+
+%----------------------------------------------------------------------------------------
+%	SECTION TITLE STYLING AND SPACING
+%----------------------------------------------------------------------------------------
+
+\newenvironment{tightitemize} % Defines the tightitemize environment which modifies the itemize environment to be more compact
+{\vspace{-\topsep}\begin{itemize}\itemsep1pt \parskip0pt \parsep0pt}
+{\end{itemize}\vspace{-\topsep}}
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\lastupdated % Print the Last Updated text at the top right
+
+\namesection{Sean}{Madden}{ 
+	\urlstyle{same}\url{http://seanmadden.net} | 
+	\href{mailto:sean@seanmadden.net}{sean@seanmadden.net} | 707/276-6863
+}
+
+%----------------------------------------------------------------------------------------
+%	LEFT COLUMN
+%----------------------------------------------------------------------------------------
+
+\begin{minipage}[t]{0.30\textwidth} % The left column takes up 33% of the text width of the page
+
+%------------------------------------------------
+% Education
+%------------------------------------------------
+
+\section{Education} 
+
+\subsection{Rochester Institute of Technology}
+
+\descript{BS in Software Engineering}
+\location{2006 - 2011 | Rochester, NY}
+Minor in Electrical Engineering \\
+Minor in Criminal Justice \\
+With Computer Security
+
+\sectionspace % Some whitespace after the section
+
+%------------------------------------------------
+% Links
+%------------------------------------------------
+
+\section{Links} 
+
+Github:// \location{\href{https://github.com/spmadden}{spmadden}} 
+LinkedIn:// \location{\href{https://www.linkedin.com/in/spmadden}{spmadden}}
+Twitter:// \location{\href{https://twitter.com/seanpmadden}{@seanpmadden} }
+SOCareers:// \location{\href{http://careers.stackoverflow.com/seanmadden}{seanmadden}}
+
+
+\sectionspace % Some whitespace after the section
+
+%------------------------------------------------
+% Coursework
+%------------------------------------------------
+
+\section{Coursework}
+
+\subsection{Industry}
+RF and Signals Intelligence \\
+Radar and Electronic Warfare \\
+\sectionspace 
+
+\subsection{Undergraduate}
+Cryptography \\
+Distributed Systems Design \\
+Engineering of Software Subsystems \\
+Information Systems Design \\
+Requirements and Specifications\\
+Software Architectures \\
+Software Formal Methods \\
+Software Usability \\
+Software Validation and Verification \\
+
+
+\sectionspace % Some whitespace after the section
+
+%------------------------------------------------
+% Skills
+%------------------------------------------------
+
+\section{Skills}
+
+\subsection{Programming}
+
+\location{Fluent in:}
+Java \textbullet{} Bash \textbullet{} C \textbullet{} C++ \textbullet{} Python  \\ 
+
+\location{Proficient With:}
+CSS \textbullet{} PHP \textbullet{} MySQL \textbullet{} Javascript\\
+
+\location{Familiar:}
+C\# \textbullet{} VBScript \textbullet{} Android \textbullet{} Perl \\
+Matlab \textbullet{} VHDL \textbullet{} Assembly \\
+
+\sectionspace 
+
+\subsection{Tools}
+Linux, Windows Programming Environments \\
+Eclipse | Netbeans | VisualStudio IDEs \\
+GIT | HG | SVN | ClearCase SCM \\
+Linux Driver Development \\
+IT and Systems Management
+
+\sectionspace % Some whitespace after the section
+
+%----------------------------------------------------------------------------------------
+
+\end{minipage} % The end of the left column
+\hfill
+%
+%----------------------------------------------------------------------------------------
+%	RIGHT COLUMN
+%----------------------------------------------------------------------------------------
+%
+\begin{minipage}[t]{0.66\textwidth} % The right column takes up 66% of the text width of the page
+
+%------------------------------------------------
+% Experience
+%------------------------------------------------
+
+\section{Experience}
+
+\runsubsection{BAE Systems Inc.}
+\descript{| Senior Software Engineer}
+
+\location{June 2011 – Present | Burlington, MA}
+\vspace{\topsep} 
+\begin{tightitemize}
+\item Currently Software Engineering Lead (SWEL) for a 7 person program. In charge of design, development, and integration for a system that will be Flight Tested in 2016. (\$12M. Budget, 100k SLOC)
+\item Currently Supervising and Responsible Engineer for a 7 person subcontractor building a Human-Machine Interface for our product line.
+\item Lead a 10 person team to rapidly create a new capability for a major program to interface with a new protocol.  Finished ahead of schedule and under budget. (\$700K Budget, 30k SLOC)
+\item Responsible for coordination and oversight of several core software components between multiple programs.
+\item Represented BAE as Primary Integrator and point-of-contact to Govm't Customer for a Hardware Integration Effort.
+\item Primary Integrator and Test Team Lead for User Feedback capability.
+\item Designed and Developed Linux Driver for custom PCI-Express hardware
+\item Invented algorithm to hyper-accurately synchronize multiple systems in a distributed environment. 
+\end{tightitemize}
+
+\sectionspace % Some whitespace after the section
+
+%------------------------------------------------
+
+\runsubsection{FactSet Research Systems}
+\descript{| Security Engineering Intern}
+
+\location{May 2010 - August 2010 | Norwalk, CT}
+\begin{tightitemize}
+\item Designed and developed a Quality Assurance tool that allowed the automated collection and analysis of data in a distributed environment.
+\item Performed security analysis and penetration testing on the primary network protocol.
+\item Researched and documented an undocumented binary protocol.
+\end{tightitemize}
+
+\sectionspace % Some whitespace after the section
+
+%------------------------------------------------
+
+\runsubsection{BAE Systems Inc.}
+\descript{| Software Engineering Intern I/II/III}
+
+\location{June 2007 - August 2009 | Hudson, NH}
+\begin{tightitemize}
+\item Designed and developed a mathematical graphing framework to layout and display components and connections in a distributed computing network. (7k SLOC).
+\item Developed a simulator of BAE Hardware \& Software that was delivered to a subcontractor (12k SLOC)
+\item Nominated for Developer of the Month, July 2009 for going above and beyond the responsibilities of an Intern
+\end{tightitemize}
+
+\sectionspace
+
+\runsubsection{RIT ITS/FAST Support}
+\descript{| Senior Desktop Support Representative}
+
+\location{Oct 2008 - May 2011 | Rochester, NY}
+\begin{tightitemize}
+\item Worked as a first-response support member to resolve technical issues and interface with customers for RIT Finance and Administration Support Technologies
+\item Managed the 'Incidents' team where I reduced the trouble ticket queue from 130 tickets down to 8 while improving overall user happiness.
+\end{tightitemize}
+
+\sectionspace % Some whitespace after the section
+
+%------------------------------------------------
+% Awards
+%------------------------------------------------
+
+\section{Awards} 
+
+\begin{tabular}{rll}
+2014 & Nominated for BAE Systems Chairman's Award \\
+2014 & BAE Impact Award for Improving Customer Confidence \\
+2013 & BAE Impact Award for Rapidly Responding to Requirements Change \\
+2009 & Nominated for BAE Developer of the Month \\
+2005 & Eagle Scout
+\end{tabular}
+
+%----------------------------------------------------------------------------------------
+
+\end{minipage} % The end of the right column
+
+%----------------------------------------------------------------------------------------
+%	SECOND PAGE (EXAMPLE)
+%----------------------------------------------------------------------------------------
+
+\newpage % Start a new page
+
+\begin{minipage}[t]{0.40\textwidth} % The left column takes up 33% of the text width of the page
+
+\section{Volunteer Experience}
+Head of Mentoring - Soc. of Software Eng.\\
+\textbullet{} Designed and taught review sessions for various courses \\
+\textbullet{} Designed and taught several 'Crash Courses' on various topics \\
+RIT Ski Team, Secretary \\
+BAE FOCUS \\
+
+\sectionspace
+
+\section{Talks}
+
+\subsection{Public}
+\href{https://www.youtube.com/watch?v=bisFnj8YqW4}{Sept 2012: Time in Computing}
+
+\sectionspace
+
+\subsection{Undergraduate}
+\begin{tabular}{ll}
+April 2010 & Website Security \\
+April 2010 & Threading In Java \\
+March 2010 & Regular Expressions \\
+March 2010 & Cryptography \\
+March 2010 & PyQT4 Bindings \\
+September 2010 & PHP's Propel ORM \\
+October 2010 & Linux for Windows Folks \\
+October 2010 & Basics of Eclipse \\
+November 2010 & DVCS with Mercurial \\
+November 2010 & XML with Apache's Cayenne \\
+\end{tabular}
+
+\end{minipage} % The end of the left column
+\hfill
+\begin{minipage}[t]{0.55\textwidth} % The right column takes up 66% of the text width of the page
+
+\section{Personal Projects}
+
+\runsubsection{Nearly Free Speech.net Java API}
+\descript{| API Client}
+
+\location{ \href{https://github.com/spmadden/nfsnclient-java }{ On GitHub }}
+\vspace{\topsep}
+\begin{tightitemize}
+\item 3k SLOC, Java
+\item API HTTP REST Client for NFSN's API
+\end{tightitemize}
+
+\sectionspace
+
+\runsubsection{USGS SRTM1 DTED Downloader}
+\descript{| Web scraper}
+\location{\href{https://github.com/spmadden/usgs-srtm1-downloader}{On GitHub}}
+\begin{tightitemize}
+\item 3k SLOC, Java
+\item HTTP Client and Webscraper to download selected portions of the US Geological Society's (USGS) Shuttle Radar Topography Mission (SRTM1) Digital Terrain and Elevation Data (DTED)
+\end{tightitemize}
+
+\sectionspace
+
+
+\runsubsection{SMMSP Satellite Tracking}
+\descript{| Space Program}
+\location{\href{https://github.com/SMMSP}{On GitHub}}
+\begin{tightitemize}
+\item 6k SLOC, Java
+\item Suite of Java-based Astrometrics Utilities for Orbital Tracking
+\item Plans for Android, iOS, and Desktop Applications for Orbital Information
+\end{tightitemize}
+\sectionspace
+
+
+\runsubsection{RIT's Better CLAWS}
+\descript{| Chrome Extension}
+\location{\href{https://github.com/spmadden/rit-betterclaws}{On GitHub}}
+\begin{tightitemize}
+\item 700 SLOC, Javascript
+\item Chrome Extension and Greasemonkey Script to massively improve the RIT CLAWS Identity and Access Management Web Interface
+\end{tightitemize}
+
+\sectionspace
+
+\runsubsection{FAST Interpretype}
+\descript{| Hardware Interface, Accessibility}
+\location{\href{https://github.com/spmadden/FAST_Interpretype}{On GitHub}}
+\begin{tightitemize}
+\item 7k SLOC, Java
+\item Reverse-engineer of the Deaf Communications Software to interact with an Interpretype Hardware device
+\item Currently deployed through RIT's Finance and Administration
+\end{tightitemize}
+
+\sectionspace
+
+\runsubsection{FAST LDAP Search}
+\descript{| Network Client}
+\location{\href{https://github.com/spmadden/FAST_LdapSearch}{On GitHub}}
+\begin{tightitemize}
+\item 12k SLOC, Java
+\item Automated \& Scriptable method to query and aggregate information from LDAP Groups
+\item Presents information using customizable \& extensible reports
+\item Utilized by key administrators in RIT's Finance and Administration
+\end{tightitemize}
+
+\sectionspace
+
+\runsubsection{SeansLibs - Java}
+\descript{| Library Collection}
+\location{\href{https://github.com/spmadden/SeansLibs-Java}{On GitHub}}
+\begin{tightitemize}
+\item 8k SLOC, Java
+\item Core Libraries for Several other Projects
+\item Includes Classloading, Logging, XML, JSON, and Graphing/Charting
+\end{tightitemize}
+\sectionspace
+
+\end{minipage} % The end of the right column
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
